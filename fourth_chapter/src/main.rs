@@ -68,26 +68,182 @@ fn main() {
 
 
 
-    let s1 = String::from("hello");
+    // let s1 = String::from("hello");
 
-    let (s2, len) = calculate_length(s1);
+    // let (s2, len) = calculate_length(s1);
 
-    println!("The length of '{}' is {}.", s2, len);
-
-
+    // println!("The length of '{}' is {}.", s2, len);
 
 
+    // let s1 = String::from("Hello");
 
 
-} // Here, s3 goes out of scope and is dropped. s2 was moved, so nothing
-  // happens. s1 goes out of scope and is dropped.
+    // let s1 = String::from("hello");
+    // let len = calculate_length(&s1);
+    // println!("The length of '{}' is {}", s1, len);
 
-fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() returns the length of a String
-    (s, length)
+    // let s = String::from("hello");
+    // change(&s);
+
+    // let mut s = String::from("hello");
+    // change(&mut s);
+
+
+    // let mut s = String::from("hello");
+    // let r1 = &mut s;
+    // let r2 = &mut s;
+    // println!("{}, {}",r1, r2);
+
+
+    // let mut s = String::from("hello");
+    // {
+    //     let r1 = &mut s;
+    // }// r1 goes out of scope here, so we can make a new reference with no problems.
+    // let r2 = &mut s;
+
+    // let mut s = String::from("hello");
+    // let r1 = &s; // no problem
+    // let r2 = &s; // no problem
+    // let r3 = &mut s; // BIG PROBLEM
+    // println!("{}, {}, and {}", r1,r2,r3);
+
+
+
+    // let mut s = String::from("hello");
+    // let r1 = &s; // no problem
+    // let r2 = &s; // no problem
+
+    // println!("{} and {}", r1,r2);
+    // // variables r1 and r2 will not be used after this point
+
+    // let r3 = &mut s; // no problem
+    // println!("{}", r3);
+
+    // let reference_to_nothing = no_dangle();
+
+
+
+// let mut s = String::from("hello world");
+// let word = first_word(&s); // word will get the value 5
+// s.clear(); // this empties the string, making it equal to ""
+
+// word still has the value 5 here, but there's no more sring that 
+// we could meaningully use the value 5 with. word is now totatlly invalid
+
+
+
+
+// let s = String::from("hello");
+// let len = s.len();
+
+// let slice = &s[3..len];
+// let slice = &s[3..];
+
+// let slice = &s[0..len];
+// let slice = &s[..];
+
+// println!("{slice}");
+
+    // let mut s = String::from("hello world");
+    // let word = first_word(&s);
+    // s.clear(); //error
+    // println!("The first word is: {}", word);
+
+
+    // let my_string = String::from("hello world");
+    
+    // // 'first_word' works on slices of 'string's, whether partial or whole
+    // let word = first_word(&my_string[0..6]);
+    // let word = first_word(&my_string[..]);
+
+    // // 'first_word' also works on referencs to 'Strings', which are equivalent 
+    // // to whole slices of 'Strings'
+
+    // let word = first_word(&my_string);
+
+
+    // let my_string_literal = "hello world";
+
+    // //first_Word works on slics of string literals, whether partial or whole 
+    // let word = first_word(&my_string_literal[0..6]);
+    // let word = first_word(&my_string_literal[..]);
+
+    // // Because sring literals *are* string slices already,
+    // // this wordks too, without the slice sintax!
+    // let word = first_word(my_string_literal);
+
+
+    let a = [1,2,3,4,5,6,7,8,9];
+
+    let slice = &a[1..3];
+
+    assert_eq!(slice,&[2,3]);
+
+
+
+
+
+
+
 }
 
 
+// fn first_word(s:&str) -> &str {
+//     let bytes = s.as_bytes();
+
+//     for (i, &item) in bytes.iter().enumerate() {
+//         if item == b' '{
+//             return &s[0..i];
+//         }
+//     }
+//     &s[..]
+// }
+
+
+// fn first_word(s: &String) -> usize {
+//     let bytes = s.as_bytes();
+
+
+//     for (i, &item) in bytes.iter().enumerate(){
+//         if item == b' ' {
+//             return i;
+//         }
+//     }
+//     s.len()
+// }
+
+
+
+
+
+
+
+
+
+// fn no_dangle() -> String {
+//     let s = String::from("hello");
+//     s
+// }
+
+// fn change(some_string:&String){
+//     some_string.push_str(", world")
+// }
+
+// fn change(some_string: &mut String){
+//     some_string.push_str(", world");
+// }
+
+
+
+
+
+// fn calculate_length(s:&String) -> usize {
+//     s.len()
+// }
+// fn calculate_length(s: String) -> (String, usize) {
+//     let length = s.len(); // len() returns the length of a String
+//     (s, length)
+// }
 //   fn gives_ownership() -> String {             // gives_ownership will move its
 //     // return value into the function
 //     // that calls it
