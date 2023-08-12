@@ -212,12 +212,10 @@ fn main() {
     //     println!("The value is {element}");
     // }
 
-    for number in (1..4).rev() {
-        println!("{number}");
-    }
-    println!("LITOFF!!!");
-
-
+    // for number in (1..4).rev() {
+    //     println!("{number}");
+    // }
+    // println!("LITOFF!!!");
 
 }
 // fn plus_one(x:i32) -> i32 {
